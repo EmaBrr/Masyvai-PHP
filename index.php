@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Masyvai</title>
 </head>
 <body>
     <?php 
@@ -88,8 +88,7 @@
         echo "Porinis masyvas:";
         echo "<br>";
         print_r($poriniai);
-        echo "<br>";
-        echo "<br>";
+        echo "<br><br>";
         echo "Neporinis masyvas:";
         echo "<br>";
         print_r($neporiniai);
@@ -97,18 +96,6 @@
         // g) Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
         echo "<h3>Antras pratimas g):</h3>";
                 
-        // function replace_key($arr, $oldkey, $newkey) {
-        //     if(array_key_exists( $oldkey, $arr)) {
-        //         $keys = array_keys($arr);
-        //         $keys[array_search($oldkey, $keys)] = $newkey;
-        //         return array_combine($keys, $arr);	
-        //     }
-        //     return $arr;    
-        // };
-        // echo "<br>";echo "<br>";echo "<br>";
-        // print_r(replace_key($poriniai, 4, 0));
-        // echo "<br>";echo "<br>";echo "<br>";
-        
         for ($i=0; $i < $countArray1; $i++) { 
             if ($arr1[$i] > 15) {
                 $arr1[$i] = 0;
@@ -158,7 +145,7 @@
 
         // 5. Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. 
         // Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
-
+        echo "<h3>Penktas pratimas:</h3>";
         //nesuprantu sąlygos
 
         // 6. Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. 
@@ -182,8 +169,7 @@
         };
         print_r($pirmasMasyvas);
 
-        echo "<br>";
-        echo "<br>";
+        echo "<br><br>";
 
         for ($i=0; $i < 100; $i++) { 
             $randomNumber = rand(100, 999);
@@ -205,26 +191,57 @@
         // bet nėra antrame 6 uždavinio masyve.
         echo "<h3>Septintas pratimas:</h3>";
 
-        // $newArray = [];
-        // // $pirmasMasyvas = [1,2,3];
-        // // $antrasMasyvas = [1,4,3];
-        // $countPirmasMasyvas = count($pirmasMasyvas);
-        // $countAntrasMasyvas = count($antrasMasyvas);
-
-        // for ($i=0; $i < $countPirmasMasyvas; $i++) { 
-        //     for ($a=0; $a < $countAntrasMasyvas; $a++) { 
-        //         if ($pirmasMasyvas[$i] == $antrasMasyvas[$a]) {
-        //             break;
-        //         } else {
-        //             $newArray[] = $pirmasMasyvas[$i];
-        //         };
-        //     };
-        // };
-
-        // print_r($newArray);
-
-        $result = array_intersect($pirmasMasyvas, $antrasMasyvas);
+        $result = array_diff($pirmasMasyvas, $antrasMasyvas);   
         print_r($result);
+
+        // 8. Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
+        echo "<h3>Aštuntas pratimas:</h3>";
+        
+        $resultIntersect = array_intersect($pirmasMasyvas, $antrasMasyvas);
+        print_r($resultIntersect);
+
+        // 9. Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
+        echo "<h3>Devintas pratimas:</h3>";
+        
+        $flipped = array_flip($pirmasMasyvas);
+
+        print_r($flipped);
+        $counterFlipped = count($flipped);
+        
+        //nesugalvojau, kaip priskirt ano masyvo elementus, nes for pakeis indeksus. 
+
+        // 10. Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. 
+        // Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+        echo "<h3>Dešimtas pratimas:</h3>";
+
+        $naujasArray = [];
+        $naujasArray[] = rand(5, 25);
+        $naujasArray[] = rand(5, 25);
+
+        for ($i=0; $i < 6; $i++) {  
+            $suma = $naujasArray[$i] + $naujasArray[$i+1];
+            $naujasArray[$i+2] = $suma;
+        };
+
+        print_r($naujasArray);
+
+        // 11. Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. 
+        // Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. 
+        // Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. 
+        // Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). Jeigu sumų skirtumas (modulis, absoliutus dydis)
+        // yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
+ 
+        echo "<h3>Vienuoliktas pratimas:</h3>";
+
+        $newArray = [];
+
+        for ($i=0; $i < 101; $i++) { 
+            $rand = rand(0, 300);
+            $newArray[] = $rand;
+        };
+
+        print_r($newArray);
+
 
     ?>
 </body>
