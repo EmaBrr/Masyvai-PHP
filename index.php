@@ -46,10 +46,8 @@
         // c) Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
         echo "<h3>Antras pratimas c):</h3>";
         $suma = 0;
-        for ($i=0; $i < $countArray; $i++) { 
-            if ($i % 2 == 0) {
-                $suma = $suma + $i;
-            };
+        for ($i=0; $i < $countArray; $i+=2) { 
+            $suma = $suma + $arr[$i];
         };
         echo "Lyginių indeksų reikšmių suma yra lygi: $suma.";
 
@@ -57,7 +55,7 @@
         echo "<h3>Antras pratimas d):</h3>";
         $arr1 = [];
         for ($i=0; $i < $countArray; $i++) { 
-            $arr1[$i] = $arr[$i]-1;
+            $arr1[$i] = $arr[$i]-$i;
         };
         print_r($arr1);
 
