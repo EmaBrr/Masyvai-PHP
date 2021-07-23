@@ -94,9 +94,9 @@
         // g) Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
         echo "<h3>Antras pratimas g):</h3>";
                 
-        for ($i=0; $i < $countArray1; $i++) { 
-            if ($arr1[$i] > 15) {
-                $arr1[$i] = 0;
+        for ($i=0; $i < $countArray; $i+=2) { 
+            if ($arr[$i] > 15) {
+                $arr[$i] = 0;
             };
         };
 
